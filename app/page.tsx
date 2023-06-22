@@ -1,9 +1,13 @@
 import Image from 'next/image';
 import SignInForm from './components/SignInForm';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function Home() {
   return (
-    <div className="w-full h-full bg-gray-100 flex flex-col items-center justify-center">
+    <>
+    <div className="w-full min-h-full bg-gray-100 flex flex-col items-center justify-center">
           <Image
       src='/images/messenger.png'
       width={60}
@@ -14,6 +18,18 @@ export default function Home() {
             Sign in with Messenger
           </h1>
       <SignInForm />
-    </div>
+      <ToastContainer
+          position="top-right"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />    </div>
+        </>
   )
 }

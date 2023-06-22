@@ -1,14 +1,21 @@
-import React from 'react'
-
+import React from 'react';
+import { 
+  FieldErrors, 
+  FieldValues, 
+  UseFormRegister 
+} from "react-hook-form";
 interface inputProps{
     id:string,
     label:string,
     type?:string,
     disabled?:boolean,
     required?:boolean,
+      register: UseFormRegister<FieldValues>,
+  errors: FieldErrors
 }
 
-const Input = ({id,label,type="text",disabled,required}:inputProps) => {
+const Input = ({id,label,type="text",disabled,required,register,errors}:inputProps) => {
+
   return (
     <div>
         <label
@@ -29,6 +36,7 @@ const Input = ({id,label,type="text",disabled,required}:inputProps) => {
                       autoComplete={id}
                       disabled={disabled}
                       required={required}
+                      {...register(id, { required })}
                       className=' 
                       block
                       pl-2 
